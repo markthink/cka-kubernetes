@@ -1,0 +1,16 @@
+[Unit]
+Description=Kubernetes Scheduler
+Documentation=https://github.com/GoogleCloudPlatform/kubernetes
+
+[Service]
+ExecStart=/usr/local/bin/kube-scheduler \
+--address=127.0.0.1 \
+--master=https://${MASTER_IP}:6443 \
+--leader-elect=true \
+--kubeconfig=/etc/kubernetes/ssl/kubeconfig \
+--v=2
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

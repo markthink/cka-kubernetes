@@ -1,0 +1,27 @@
+[Unit]
+Description=Kubernetes Kubelet
+Documentation=https://github.com/kubernetes/kubernetes
+After=docker.service
+Requires=docker.service
+[Service]
+WorkingDirectory=/var/lib/kubelet
+ExecStart=/usr/local/bin/kubelet \
+  --pod-infra-container-image=cargo.caicloud.io/caicloud/pause-amd64:3.0 \
+  --allow-privileged=true \
+  --anonymous-auth=false \
+  --authorization-mode=Webhook \
+  --client-ca-file=/etc/kubernetes/ssl/ca.pem \
+  --cluster-dns=10.254.0.2 \
+  --cluster-domain=cluster.local \
+  --image-pull-progress-deadline=2m \
+  --kubeconfig=/etc/kubernetes/ssl/kubeconfig \
+  --network-plugin=cni \
+  --register-node=true \
+  --runtime-request-timeout=15m \
+  --tls-cert-file=/etc/kubernetes/ssl/kubernetes.pem \
+  --tls-private-key-file=/etc/kubernetes/ssl/kubernetes-key.pem \
+  --v=2
+Restart=on-failure
+RestartSec=5
+[Install]
+WantedBy=multi-user.target

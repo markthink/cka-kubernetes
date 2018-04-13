@@ -1,0 +1,9 @@
+[master]
+master
+
+[node]
+node1
+node2
+
+[etcd]
+master

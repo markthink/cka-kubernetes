@@ -1,0 +1,28 @@
+[Unit]
+Description=Kubernetes Kubelet
+Documentation=https://github.com/GoogleCloudPlatform/kubernetes
+After=docker.service
+Requires=docker.service
+
+[Service]
+WorkingDirectory=/var/lib/kubelet
+ExecStart=/usr/local/bin/kubelet \
+--address=${NODE_IP} \
+--hostname-override=${NODE_NAME} \
+--pod-infra-container-image=${PAUSE_IMAGE} \
+--experimental-bootstrap-kubeconfig=/etc/kubernetes/ssl/bootstrap.kubeconfig \
+--kubeconfig=/etc/kubernetes/ssl/kubelet.kubeconfig \
+--cert-dir=/etc/kubernetes/ssl \
+--allow-privileged=true \
+--serialize-image-pulls=false \
+--logtostderr=true \
+#--cgroup-driver=systemd
+--cgroup-driver=cgroupfs \
+--cluster_dns=${CLUSTER_DNS_SVC_IP} \
+--cluster_domain=${CLUSTER_DNS_DOMAIN} \
+--v=2
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

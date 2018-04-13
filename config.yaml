@@ -1,0 +1,30 @@
+cka:
+  #TLS Bootstrapping 使用的 Token，可以使用命令 head -c 16 /dev/urandom | od -An -t x | tr -d ' ' 生成
+  BOOTSTRAP_TOKEN: "e4aa62e2d0a523ea1724b5c21ee05fd3"
+  # 注:最好使用 主机未用的网段 来定义服务网段和 Pod 网段
+  # 服务网段 (Service CIDR），部署前路由不可达，部署后集群内使用IP:Port可达
+  SERVICE_CIDR: "10.254.0.0/16"
+  # POD 网段 (Cluster CIDR），部署前路由不可达，**部署后**路由可达(flanneld保证)
+  CLUSTER_CIDR: "172.30.0.0/16"
+  # kubernetes 服务 IP (一般是 SERVICE_CIDR 中第一个IP) - kubernetes-csr.json 需要使用
+  CLUSTER_KUBERNETES_SVC_IP: "10.254.0.1"
+  # Cluster DNS 服务 IP (从 SERVICE_CIDR 中预分配)
+  CLUSTER_DNS_SVC_IP: "10.254.0.2"
+  # Cluster DNS 域名
+  CLUSTER_DNS_DOMAIN: "cluster.local"
+  # flanneld 网络配置前缀
+  FLANNEL_ETCD_PREFIX: "/kubernetes/network"
+  # etcd 集群服务地址列表
+  # ETCD_ENDPOINTS: "https://192.168.20.151:2379"
+  ETCD_ENDPOINTS: "infra1=https://192.168.20.151:2379,infra2=https://192.168.20.152:2379,infra3=https://192.168.20.153:2379"
+  # 服务端口范围 (NodePort Range)
+  NODE_PORT_RANGE: "30000-40000"
+  # 自定义 pause 镜像 默认 gcr.io/google_containers/pause-amd64:3.0
+  PAUSE_IMAGE: "cargo.caicloud.io/caicloud/pause-amd64:3.0"
+  # MasterIP/ETCDIP
+  MASTER_IP: "192.168.20.151"
+  # NodesIP
+  NODE_IP: "192.168.20.151,192.168.20.152,192.168.20.153"
+
+
+
