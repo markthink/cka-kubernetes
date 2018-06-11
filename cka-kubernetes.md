@@ -147,7 +147,7 @@ above with their current state. For more information about a specific
 VM, run `vagrant status NAME`.
 ```
 
-## Step3. 启动 cka:v1 部署容器
+## Step3. 配置虚机环境
 
 
 下载二进制 docker 部署文件
@@ -187,8 +187,6 @@ services:
         - node2:192.168.20.153    
 ```
 
-Step3. 运行服务
-
 解决虚拟机 root 用户密码方式登陆的问题-所有节点均需要配置
 
 ```
@@ -204,7 +202,7 @@ ln -s /usr/bin/python3 /usr/bin/python
 
 ![](images/vagrant-machine.jpg)
 
-Step4. 启动容器开始部署
+## Step4. 启动 cka:v1 容器开始部署
 
 ```
 docker-compose up -d
