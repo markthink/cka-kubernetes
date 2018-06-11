@@ -215,10 +215,10 @@ ssh-keygen
 ssh-copy-id master
 ssh-copy-id node1
 ssh-copy-id node2
+```
 
 ![](images/ssh-copy.jpg)
 
-```
 安装 docker 
 
 ```
