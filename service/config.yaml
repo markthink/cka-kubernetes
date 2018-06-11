@@ -15,8 +15,8 @@ cka:
   # flanneld 网络配置前缀
   FLANNEL_ETCD_PREFIX: "/kubernetes/network"
   # etcd 集群服务地址列表
-  # ETCD_ENDPOINTS: "https://192.168.20.151:2379"
-  ETCD_ENDPOINTS: "infra1=https://192.168.20.151:2379,infra2=https://192.168.20.152:2379,infra3=https://192.168.20.153:2379"
+  ETCD_ENDPOINTS: "https://192.168.20.151:2379"
+  # ETCD_ENDPOINTS: "infra1=https://192.168.20.151:2379,infra2=https://192.168.20.152:2379,infra3=https://192.168.20.153:2379"
   # 服务端口范围 (NodePort Range)
   NODE_PORT_RANGE: "30000-40000"
   # 自定义 pause 镜像 默认 gcr.io/google_containers/pause-amd64:3.0

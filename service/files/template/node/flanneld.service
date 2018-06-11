@@ -14,7 +14,8 @@ ExecStart=/usr/local/bin/flanneld \
   -etcd-keyfile=/etc/kubernetes/ssl/flanneld-key.pem \
   -etcd-endpoints=${ETCD_ENDPOINTS} \
   -etcd-prefix=${FLANNEL_ETCD_PREFIX} \
-  --iface=${NODE_IP} # 虚拟机需要这里填写节点的IP地址
+  --iface=${NODE_IP} 
+; NODE_IP 虚拟机需要这里填写节点的IP地址
 ExecStartPost=/usr/local/bin/mk-docker-opts.sh -k DOCKER_NETWORK_OPTIONS -d /run/flannel/docker
 Restart=on-failure
 

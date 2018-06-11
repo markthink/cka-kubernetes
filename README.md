@@ -1,4 +1,7 @@
+
 # CKA Kubernetes 配置
+
+vagrant 虚机部署过程[参考这里](cka-kubernetes.md)
 
 ## 安装 Go 语言环境:
 
@@ -168,5 +171,10 @@ kubectl get csr
 kubectl get csr | awk '/Pending/ {print $1}' | xargs kubectl certificate approve
 kubectl get no
 ```
+
+
+
+
+
 
 

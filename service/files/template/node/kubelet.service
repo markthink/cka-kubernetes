@@ -16,7 +16,6 @@ ExecStart=/usr/local/bin/kubelet \
 --allow-privileged=true \
 --serialize-image-pulls=false \
 --logtostderr=true \
-#--cgroup-driver=systemd
 --cgroup-driver=cgroupfs \
 --cluster_dns=${CLUSTER_DNS_SVC_IP} \
 --cluster_domain=${CLUSTER_DNS_DOMAIN} \

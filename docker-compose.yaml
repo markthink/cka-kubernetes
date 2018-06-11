@@ -1,0 +1,13 @@
+version: '2'
+services:
+    cka: 
+        image: cka:v1
+        command: ["sh", "-c", "while true; do echo hello world; sleep 10; done"]
+        volumes:
+        - ./down:/cka/down
+        - ./cka-docker:/cka/docker
+        # - ./cka/service/config.yaml:/cka/service/config.yaml
+        # - ./cka/service/tools/cka_tools.py:/cka/service/tools/cka_tools.py
+        extra_hosts:
+        - master:192.168.20.151
+        - node1:192.168.20.152
