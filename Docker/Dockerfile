@@ -2,16 +2,16 @@
 FROM python:3.6.5-alpine3.7
 MAINTAINER xiaolong@caicloud.io
 
-COPY requirements.txt /tmp/
+COPY Docker/requirements.txt /tmp/
 # 准备配置环境
 # pip freeze > requirements.txt
 RUN pip install -r /tmp/requirements.txt
 
 # 配置 cfssl
-COPY ../cfssl/cfssl_linux-amd64 /usr/bin/cfssl
-COPY ../cfssl/cfssljson_linux-amd64 /usr/bin/cfssljson
-COPY ../cfssl/cfssl-certinfo_linux-amd64 /usr/bin/cfssl-certinfo
-COPY ../kubectl /usr/bin/kubectl
+COPY cfssl/cfssl_linux-amd64 /usr/bin/cfssl
+COPY cfssl/cfssljson_linux-amd64 /usr/bin/cfssljson
+COPY cfssl/cfssl-certinfo_linux-amd64 /usr/bin/cfssl-certinfo
+COPY kubectl /usr/bin/kubectl
 
 RUN chmod +x /usr/bin/cfssl /usr/bin/cfssljson /usr/bin/cfssl-certinfo /usr/bin/kubectl
 # 配置 rsync openssh
