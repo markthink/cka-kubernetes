@@ -11,3 +11,4 @@ services:
         extra_hosts:
         - master:192.168.20.151
         - node1:192.168.20.152
+        - node2:192.168.20.153
