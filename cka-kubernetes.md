@@ -786,5 +786,20 @@ Created symlink from /etc/systemd/system/multi-user.target.wants/kube-proxy.serv
 Step10. 启动 node 服务~
 ```
 
+### 部署 DNS 服务
+
+
+```
+bash-4.4# scp -r gen/yaml root@master:/root
+```
+
+切换 master 执行
+
+```
+kubectl create -f /root/yaml/coredns.yaml
+kubectl create -f /root/yaml/dashboard.yaml
+```
+
+
 
 ## Enjoy Youself!
