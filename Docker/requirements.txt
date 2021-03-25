@@ -5,6 +5,6 @@ click==6.7
 colorama==0.3.9
 idna==2.6
 pyfiglet==0.7.5
-PyYAML==3.12
+PyYAML==5.4
 requests==2.18.4
 urllib3==1.22
